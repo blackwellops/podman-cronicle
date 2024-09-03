@@ -10,9 +10,9 @@ RUN tar zxvf /tmp/Cronicle-${CRONICLE_VERSION}.tar.gz -C /tmp/ && \
 COPY docker-entrypoint.js ./bin/
 
 
-FROM node:18-alpine
-RUN apk add procps curl
-RUN apk add openssh
+FROM node:current-bookworm
+RUN apt install -y procps curl
+RUN apt install -y openssh-client
 COPY --from=builder /opt/cronicle/ /opt/cronicle/
 WORKDIR /opt/cronicle
 ENV CRONICLE_foreground=1
