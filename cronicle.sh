@@ -7,7 +7,6 @@ podman volume create cronicle
 podman run -d \
         -v /etc/localtime:/etc/localtime:ro \
         -v cronicle:/opt/cronicle/:rw \
-        -v ./keys:/opt/ssh/keys:ro \
         -p 3012:3012 \
         --hostname cronicle \
         --name cronicle \
