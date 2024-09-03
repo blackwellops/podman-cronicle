@@ -7,8 +7,6 @@ RUN tar zxvf /tmp/Cronicle-${CRONICLE_VERSION}.tar.gz -C /tmp/ && \
     mv /tmp/Cronicle-${CRONICLE_VERSION}/* . && \
     rm -rf /tmp/* && \
     yarn
-COPY ./patches /tmp/patches
-RUN patch -p3 < /tmp/patches/engine.patch lib/engine.js
 COPY docker-entrypoint.js ./bin/
 
 
